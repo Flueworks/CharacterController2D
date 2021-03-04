@@ -9,7 +9,6 @@ public class PhysicsObject : MonoBehaviour
 
     protected float horizontalVelocity;
     protected bool grounded;
-    protected WallHit wallHit;
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
@@ -20,8 +19,6 @@ public class PhysicsObject : MonoBehaviour
     protected const float shellRadius = 0.02f;
 
     protected float currentGravityModifier = 0;
-
-    protected bool customGravity = false;
 
     void OnEnable()
     {
@@ -50,12 +47,11 @@ public class PhysicsObject : MonoBehaviour
     private void FixedUpdate()
     {
         velocity += Physics2D.gravity * (currentGravityModifier * Time.deltaTime);
-
+        
         velocity.y = Mathf.Max(-maxFallSpeed, velocity.y);
         velocity.x = horizontalVelocity;
 
         grounded = false;
-        wallHit = WallHit.None;
 
         var deltaPosition = velocity * Time.deltaTime;
 
@@ -99,11 +95,6 @@ public class PhysicsObject : MonoBehaviour
                     }
                 }
 
-                if (currentNormal.y == 0)
-                {
-                    wallHit = currentNormal.x > 0 ? WallHit.Left : WallHit.Right;
-                }
-
                 var projection = Vector2.Dot (velocity, currentNormal);
                 if (projection < 0) 
                 {
@@ -123,7 +114,7 @@ public class PhysicsObject : MonoBehaviour
 
 public enum WallHit
 {
-    None,
-    Left,
-    Right
+    None = 0,
+    Left = -1,
+    Right = 1
 }

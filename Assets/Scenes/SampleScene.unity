@@ -9780,8 +9780,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.019001007, a: 1}
-      key1: {r: 0.6792453, g: 0.58692724, b: 0.3236027, a: 0.9137255}
+      key0: {r: 0, g: 1, b: 0.1515646, a: 1}
+      key1: {r: 1, g: 0, b: 0.019001007, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9797,7 +9797,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 54356
+      atime1: 65535
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -9806,7 +9806,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -10065,7 +10065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
-  gravityModifier: 10
+  gravityModifier: 5
   maxFallSpeed: 10
   moveSpeed: 7
   jumpTakeOffSpeed: 15
@@ -10074,6 +10074,7 @@ MonoBehaviour:
   jumpBuffer: 0.1
   walljumpSpeed: {x: 5, y: 10}
   wallGrabSlideSpeed: -1.5
+  wallStickTime: 0.1
 --- !u!61 &1402738363
 BoxCollider2D:
   m_ObjectHideFlags: 0
